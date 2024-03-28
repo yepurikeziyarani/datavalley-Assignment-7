@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class TotalExpensesCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input quantity and price per item
+        System.out.print("Enter the quantity purchased: ");
+        int quantity = scanner.nextInt();
+
+        System.out.print("Enter the price per item: ");
+        double pricePerItem = scanner.nextDouble();
+
+      
+        double totalExpenses;
+
+        if (quantity > 50) {
+            totalExpenses = quantity * pricePerItem * 0.90; // 10% discount for quantity > 50
+        } else if (quantity >= 25 && quantity <= 50) {
+            totalExpenses = quantity * pricePerItem * 0.95; // 5% discount for quantity between 25 and 50 (inclusive)
+        } else {
+            totalExpenses = quantity * pricePerItem; // No discount for quantity less than 25
+        }
+
+      
+        System.out.println("Total expenses: Rs. " + totalExpenses);
+
+        scanner.close();
+    }
+}
