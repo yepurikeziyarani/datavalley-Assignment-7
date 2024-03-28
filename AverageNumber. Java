@@ -1,0 +1,53 @@
+import java.util.Scanner;
+
+public class NumberAnalyzer {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Variables to keep track of largest, smallest, sum, and count
+        int largest = Integer.MIN_VALUE;
+        int smallest = Integer.MAX_VALUE;
+        int sum = 0;
+        int count = 0;
+
+        // Flag to check if the user wants to continue entering numbers
+        boolean continueEntering = true;
+
+        // Enter numbers until the user wants to stop
+        while (continueEntering) {
+            // Input a number
+            System.out.print("Enter a number (enter 'done' to finish): ");
+            if (scanner.hasNextInt()) {
+                int number = scanner.nextInt();
+                // Update largest and smallest
+                largest = Math.max(largest, number);
+                smallest = Math.min(smallest, number);
+                // Update sum and count
+                sum += number;
+                count++;
+            } else {
+                // If input is not an integer, check if it's "done" to finish
+                String input = scanner.next();
+                if (input.equalsIgnoreCase("done")) {
+                    continueEntering = false;
+                } else {
+                    System.out.println("Invalid input. Please enter a valid number or 'done' to finish.");
+                }
+            }
+        }
+
+        // Check if any numbers were entered
+        if (count > 0) {
+            // Calculate average
+            double average = (double) sum / count;
+            // Display results
+            System.out.println("Largest number: " + largest);
+            System.out.println("Smallest number: " + smallest);
+            System.out.println("Average of all numbers: " + average);
+        } else {
+            System.out.println("No numbers were entered.");
+        }
+
+        scanner.close();
+    }
+}
