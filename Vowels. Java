@@ -1,0 +1,42 @@
+
+import java.util.Scanner;
+
+public class VowelChecker {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input a string
+        System.out.print("Enter a string: ");
+        String inputString = scanner.nextLine();
+
+        // Convert the string to lowercase for case-insensitive comparison
+        inputString = inputString.toLowerCase();
+
+        // Initialize variables to count vowels and to check if any vowel is present
+        int vowelCount = 0;
+        boolean isVowelPresent = false;
+
+        // Check each character in the string
+        for (int i = 0; i < inputString.length(); i++) {
+            char ch = inputString.charAt(i);
+            // Check if the character is a vowel
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                isVowelPresent = true;
+                vowelCount++;
+            }
+        }
+
+        // Output the result
+        if (isVowelPresent) {
+            System.out.println("Vowels are present in the string.");
+            System.out.println("Total number of vowels: " + vowelCount);
+        } else {
+            System.out.println("No vowels are present in the string.");
+        }
+
+        scanner.close();
+    }
+}
+```
+
+This program takes input for a string, checks each character in the string to see if it's a vowel (case-insensitive), counts the total number of vowels, and finally, displays whether any vowels are present along with the total count.
